@@ -48,10 +48,10 @@
 
 DetailedViewFonts *DetailedViewFonts::_instance = 0;
 PreferenceItem<QString> DetailedViewFonts::textFont("mainWindow/detailedView", "textFont", "");
-PreferenceItem<QString> DetailedViewFonts::kanjiFont("mainWindow/detailedView", "kanjiFont", "");
-PreferenceItem<QString> DetailedViewFonts::kanaFont("mainWindow/detailedView", "kanaFont", "");
-PreferenceItem<QString> DetailedViewFonts::kanjiHeaderFont("mainWindow/detailedView", "kanjiHeaderFont", QFont("Helvetica", 28).toString());
-PreferenceItem<QString> DetailedViewFonts::kanaHeaderFont("mainWindow/detailedView", "kanaHeaderFont", "");
+PreferenceItem<QString> DetailedViewFonts::kanjiFont("mainWindow/detailedView", "kanjiFont", QFont("Noto Sans JP").toString());
+PreferenceItem<QString> DetailedViewFonts::kanaFont("mainWindow/detailedView", "kanaFont", QFont("Noto Sans JP").toString());
+PreferenceItem<QString> DetailedViewFonts::kanjiHeaderFont("mainWindow/detailedView", "kanjiHeaderFont", QFont("Noto Sans JP", 28).toString());
+PreferenceItem<QString> DetailedViewFonts::kanaHeaderFont("mainWindow/detailedView", "kanaHeaderFont", QFont("Noto Sans JP").toString());
 
 PreferenceItem<bool> DetailedView::smoothScrolling("mainWindow/detailedView", "smoothScrolling", true);
 PreferenceItem<int> DetailedView::historySize("mainWindow/detailedView", "historySize", 1000);

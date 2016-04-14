@@ -291,6 +291,7 @@ void EntryDelegatePreferences::setPrefsToWatch(PreferenceItem<int> *twoLinesPref
 	_defaultFontPref = defaultFontPref;
 	_kanjiFontPref = kanjiFontPref;
 	_kanaFontPref = kanaFontPref;
+	qDebug() << "prefs: " << _defaultFontPref->value();
 }
 
 void EntryDelegatePreferences::setKanjiFont(const QFont &font)
@@ -343,6 +344,7 @@ void EntryDelegatePreferences::refresh()
 	font = QFont();
 	romajifontChooser->setDefault(_defaultFontPref->isDefault());
 	font.fromString(_defaultFontPref->value());
+	qDebug() << "pref " << _defaultFontPref->value();
 	romajifontChooser->setFont(font);	
 }
 

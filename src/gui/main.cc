@@ -48,6 +48,7 @@
 #include <QMessageBox>
 #include <QLibraryInfo>
 #include <QtGlobal>
+#include <QFontDatabase>
 
 // The version must be defined by the compiler
 #ifndef VERSION
@@ -208,6 +209,24 @@ int main(int argc, char *argv[])
 	checkConfigurationVersion();
 
 	checkUserProfileDirectory();
+
+	qDebug() << QFont("").toString();
+	qDebug() << QFont().toString();
+
+	QFontDatabase qfd;
+	qDebug() << qfd.families(QFontDatabase::Japanese);
+
+	// Load Noto font
+	int f = QFontDatabase::addApplicationFont("./NotoSansJP-Regular.otf");
+	qDebug() << f;
+
+	qDebug() << QFontDatabase::applicationFontFamilies(0);
+	qDebug() << qfd.families(QFontDatabase::Japanese);
+	qDebug() << QFont("Noto Sans JP", 15).toString();
+	qDebug() << QFont("Noto Sans JP").toString();
+	qDebug() << QFont().toString();
+	qDebug() << QFontDatabase::systemFont(QFontDatabase::GeneralFont).toString();
+
 
 	// Get the default font from the settings, if set
 	if (!MainWindow::applicationFont.value().isEmpty()) {

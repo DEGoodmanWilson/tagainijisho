@@ -22,9 +22,9 @@
 
 EntryDelegateLayout::EntryDelegateLayout(QObject* parent, EntryDelegateLayout::DisplayMode displayMode, const QString& textFont, const QString& kanjiFont, const QString& kanaFont) : QObject(parent), _displayMode(displayMode)
 {
-	_font[DefaultText].fromString(textFont);
-	_font[Kanji].fromString(kanjiFont);
-	_font[Kana].fromString(kanaFont);
+	setTextFont(textFont);
+	setKanjiFont(kanjiFont);
+	setKanaFont(kanaFont);
 }
 
 void EntryDelegateLayout::setFont(FontRole role, const QFont &font)
@@ -144,6 +144,7 @@ void EntryDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
 		s += QString("(%1) %2 ").arg(i + 1).arg(entry->meanings()[i]);
 	}
 	painter->setFont(layout->textFont());
+	qDebug() << "paint " << layout << layout->textFont().toString();
 	if (layout->displayMode() == EntryDelegateLayout::OneLine) {
 		s = QFontMetrics(layout->textFont()).elidedText(s, Qt::ElideRight, rect.width() - (bbox.width() + bbox2.width()));
 		painter->drawText(QPoint(bbox2.right(), rect.top() + topLineAscent), s);
